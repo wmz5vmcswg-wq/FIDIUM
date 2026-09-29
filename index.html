@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Fidium — Soluciones integrales, protección y gestión estratégica de negocios.">
+
+  <title>Fidium | Soluciones Integrales</title>
+
+  <style>
+    :root {
+      --black: #070707;
+      --black-2: #0d0d0d;
+      --panel: #111111;
+      --gold: #b58a45;
+      --gold-light: #d6b16b;
+      --red: #9e1717;
+      --white: #f4f1eb;
+      --muted: #aaa49a;
+      --line: rgba(214,177,107,.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(7,7,7,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      letter-spacing: 5px;
+      color: var(--gold-light);
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: #d8d4cd;
+    }
+
+    nav a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--gold);
+      padding: 11px 16px !important;
+      color: var(--gold-light) !important;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 75% 30%,
+          rgba(181,138,69,.12),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(158,23,23,.08),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          #070707 0%,
+          #11100d 55%,
+          #070707 100%
+        );
+    }
+
+    .hero-content {
+      padding-top: 100px;
+      max-width: 920px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 8vw, 94px);
+      line-height: .98;
+      font-weight: 500;
+      letter-spacing: -3px;
+    }
+
+    .gold {
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 30px 0;
+      color: #c5c0b7;
+      font-size: 18px;
+    }
+
+    /* BOTONES */
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 23px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 11px;
+      font-weight: bold;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #090909;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-outline:hover {
+      background: rgba(181,138,69,.1);
+    }
+
+    /* SECCIONES */
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-label {
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 13px;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .intro {
+      max-width: 720px;
+      color: var(--muted);
+      margin-top: 20px;
+      font-size: 17px;
+    }
+
+    .about {
+      background: var(--black-2);
+    }
+
+    /* SERVICIOS */
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .card {
+      min-height: 270px;
+      padding: 28px;
+      background:
+        linear-gradient(
+          145deg,
+          #131313,
+          #0b0b0b
+        );
+
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(214,177,107,.5);
+    }
+
+    .num {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .card h3 {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: 500;
+      margin: 28px 0 14px;
+    }
+
+    .card p {
+      color: #a9a49b;
+      font-size: 14px;
+    }
+
+    /* MÉTODO */
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 50px;
+    }
+
+    .step {
+      padding: 25px;
+      border-top: 1px solid var(--gold);
+      border-right: 1px solid var(--line);
+    }
+
+    .step strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 30px;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .step span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* CONTACTO */
+
+    .contact {
+      background:
+        linear-gradient(
+          135deg,
+          #11100d,
+          #080808
+        );
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      margin-top: 48px;
+    }
+
+    .contact-box {
+      padding: 35px;
+      border: 1px solid var(--line);
+      background: #0b0b0b;
+    }
+
+    label {
+      display: block;
+      color: #cfc9bd;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px;
+      background: #101010;
+      border: 1px solid #29251f;
+      color: white;
+      margin-bottom: 18px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* WHATSAPP */
+
+    .wa {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 999;
+
+      width: 58px;
+      height: 58px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #168c45;
+      color: white;
+
+      font-size: 25px;
+
+      box-shadow: 0 10px 35px rgba(0,0,0,.45);
+    }
+
+    .small {
+      font-size: 12px;
+      color: #777;
+      margin-top: 15px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        border-right: 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero-content {
+        padding-top: 80px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+  <div class="container">
+
+    <nav>
+
+      <a href="#inicio" class="logo">
+        FIDIUM
+      </a>
+
+      <ul>
+
+        <li>
+          <a href="#firma">
+            La Firma
+          </a>
+        </li>
+
+        <li>
+          <a href="#servicios">
+            Servicios
+          </a>
+        </li>
+
+        <li>
+          <a href="#metodo">
+            El Método
+          </a>
+        </li>
+
+        <li>
+          <a href="#contacto">
+            Contacto
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="nav-cta"
+            href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica."
+            target="_blank"
+          >
+            WhatsApp
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="inicio">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Soluciones integrales · Protección · Gestión estratégica
+      </div>
+
+      <h1>
+
+        NO BUSCAMOS EL CAMINO FÁCIL.
+
+        <br>
+
+        <span class="gold">
+          ENCONTRAMOS EL CAMINO POSIBLE.
+        </span>
+
+      </h1>
+
+      <p>
+        Fidium es el aliado estratégico de empresarios y organizaciones
+        que necesitan proteger, negociar, resolver y ejecutar sin burocracia.
+      </p>
+
+      <div class="actions">
+
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica."
+          target="_blank"
+        >
+          Agendar Consulta Estratégica
+        </a>
+
+        <a
+          class="btn btn-outline"
+          href="#servicios"
+        >
+          Explorar Servicios
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     LA FIRMA
+========================= -->
+
+<section class="about" id="firma">
+
+  <div class="container">
+
+    <div class="section-label">
+      La Firma
+    </div>
+
+    <h2>
+      Un solo aliado.
+      <br>
+      <span class="gold">
+        Una visión integral.
+      </span>
+    </h2>
+
+    <p class="intro">
+
+      Fidium nace en 2026 para romper con el
+      “no se puede”.
+
+      Integramos estrategia legal, negociación comercial,
+      operación, capacitación y experiencias bajo un solo
+      punto de contacto de alto nivel.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICIOS
+========================= -->
+
+<section id="servicios">
+
+  <div class="container">
+
+    <div class="section-label">
+      Servicios
+    </div>
+
+    <h2>
+      Diseñamos soluciones.
+      <br>
+      <span class="gold">
+        Ejecutamos resultados.
+      </span>
+    </h2>
+
+
+    <div class="grid-4">
+
+
+      <article class="card">
+
+        <div class="num">
+          01
+        </div>
+
+        <h3>
+          Blindaje & Gestión Legal
+        </h3>
+
+        <p>
+          Registro de marcas, contratos, bajas,
+          mediación y gestión de asuntos legales
+          orientados a proteger y dar continuidad
+          al negocio.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="num">
+          02
+        </div>
+
+        <h3>
+          Estrategia & Negociación
+        </h3>
+
+        <p>
+          Intermediación comercial, análisis de mercado,
+          representación en negociaciones y estructuración
+          de oportunidades.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="num">
+          03
+        </div>
+
+        <h3>
+          Experiencias & Capacitación
+        </h3>
+
+        <p>
+          Producción de eventos corporativos, ejecutivos
+          y estudiantiles, además de capacitación
+          para equipos y organizaciones.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="num">
+          04
+        </div>
+
+        <h3>
+          Concierge Empresarial
+        </h3>
+
+        <p>
+          Una red de especialistas y gestión directa
+          para resolver necesidades operativas,
+          estratégicas y comerciales.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     MÉTODO
+========================= -->
+
+<section class="about" id="metodo">
+
+  <div class="container">
+
+    <div class="section-label">
+      El Método Fidium
+    </div>
+
+    <h2>
+      Del problema a la
+      <span class="gold">
+        ejecución.
+      </span>
+    </h2>
+
+
+    <div class="method-grid">
+
+      <div class="step">
+        <strong>01</strong>
+        <span>Escuchamos</span>
+      </div>
+
+      <div class="step">
+        <strong>02</strong>
+        <span>Diagnosticamos</span>
+      </div>
+
+      <div class="step">
+        <strong>03</strong>
+        <span>Diseñamos</span>
+      </div>
+
+      <div class="step">
+        <strong>04</strong>
+        <span>Ejecutamos</span>
+      </div>
+
+      <div class="step">
+        <strong>05</strong>
+        <span>Resolvemos</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
+<section class="contact" id="contacto">
+
+  <div class="container">
+
+    <div class="section-label">
+      Agenda Privada
+    </div>
+
+    <h2>
+      Cuéntanos qué necesitas.
+      <br>
+
+      <span class="gold">
+        Hablemos de cómo hacerlo posible.
+      </span>
+    </h2>
+
+
+    <div class="contact-grid">
+
+
+      <!-- FORMULARIO -->
+
+      <div class="contact-box">
+
+        <form onsubmit="sendWhatsApp(event)">
+
+          <label>
+            Nombre
+          </label>
+
+          <input
+            id="nombre"
+            type="text"
+            required
+            placeholder="Tu nombre"
+          >
+
+
+          <label>
+            Empresa
+          </label>
+
+          <input
+            id="empresa"
+            type="text"
+            placeholder="Empresa / organización"
+          >
+
+
+          <label>
+            Área de interés
+          </label>
+
+          <select id="area">
+
+            <option>
+              Blindaje & Gestión Legal
+            </option>
+
+            <option>
+              Estrategia & Negociación Comercial
+            </option>
+
+            <option>
+              Experiencias & Capacitación
+            </option>
+
+            <option>
+              Concierge Empresarial
+            </option>
+
+            <option>
+              Gestión & Resolución Integral de Negocios
+            </option>
+
+          </select>
+
+
+          <label>
+            Cuéntanos brevemente
+          </label>
+
+          <textarea
+            id="mensaje"
+            required
+            placeholder="Describe tu proyecto, problema o necesidad."
+          ></textarea>
+
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Enviar por WhatsApp
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- CONTACTO DIRECTO -->
+
+      <div>
+
+        <div class="section-label">
+          Contacto directo
+        </div>
+
+        <h3
+          style="
+            font-family:Georgia,serif;
+            font-size:34px;
+            font-weight:500;
+            margin-bottom:18px;
+          "
+        >
+          Atención directa y confidencial.
+        </h3>
+
+        <p
+          style="
+            color:#aaa49a;
+            margin-bottom:28px;
+          "
+        >
+          Para consultas, proyectos, negociaciones
+          o eventos, puedes contactar directamente
+          a Fidium.
+        </p>
+
+
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20hablar%20sobre%20un%20proyecto."
+          target="_blank"
+        >
+          Hablar por WhatsApp
+        </a>
+
+
+        <p class="small">
+          WhatsApp: +52 477 671 7098
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="container">
+
+    © 2026 Fidium.
+    Todos los derechos reservados.
+    · Aviso de privacidad
+    · Términos y condiciones
+
+  </div>
+
+</footer>
+
+
+<!-- =========================
+     BOTÓN FLOTANTE WHATSAPP
+========================= -->
+
+<a
+  class="wa"
+  href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica."
+  target="_blank"
+  aria-label="WhatsApp"
+>
+  ◉
+</a>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function sendWhatsApp(event) {
+
+  event.preventDefault();
+
+  const nombre =
+    document.getElementById("nombre").value.trim();
+
+  const empresa =
+    document.getElementById("empresa").value.trim();
+
+  const area =
+    document.getElementById("area").value;
+
+  const mensaje =
+    document.getElementById("mensaje").value.trim();
+
+
+  const text =
+    "Hola Fidium,%0A%0A" +
+
+    "Nombre: " +
+    encodeURIComponent(nombre) +
+    "%0A" +
+
+    "Empresa: " +
+    encodeURIComponent(
+      empresa || "No especificada"
+    ) +
+    "%0A" +
+
+    "Área: " +
+    encodeURIComponent(area) +
+    "%0A" +
+
+    "Proyecto / necesidad: " +
+    encodeURIComponent(mensaje);
+
+
+  window.open(
+    "https://wa.me/524776717098?text=" + text,
+    "_blank"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
