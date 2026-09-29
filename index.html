@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Fidium — Soluciones integrales, protección y gestión estratégica de negocios.">
+  <meta name="description" content="Fidium — Soluciones integrales, protección y gestión estratégica de negocios en México y Chile.">
 
   <title>Fidium | Soluciones Integrales</title>
 
@@ -48,7 +48,9 @@
       margin: auto;
     }
 
-    /* NAVBAR */
+    /* =========================
+       NAVBAR
+    ========================= */
 
     header {
       position: fixed;
@@ -99,7 +101,9 @@
       color: var(--gold-light) !important;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 100vh;
@@ -129,7 +133,7 @@
 
     .hero-content {
       padding-top: 100px;
-      max-width: 920px;
+      max-width: 950px;
       position: relative;
       z-index: 2;
     }
@@ -155,13 +159,22 @@
     }
 
     .hero p {
-      max-width: 690px;
+      max-width: 700px;
       margin: 30px 0;
       color: #c5c0b7;
       font-size: 18px;
     }
 
-    /* BOTONES */
+    .location {
+      color: #9e988e;
+      font-size: 13px;
+      margin-bottom: 28px;
+      letter-spacing: .5px;
+    }
+
+    /* =========================
+       BOTONES
+    ========================= */
 
     .actions {
       display: flex;
@@ -178,6 +191,7 @@
       font-weight: bold;
       border: 1px solid var(--gold);
       cursor: pointer;
+      transition: .25s;
     }
 
     .btn-primary {
@@ -193,7 +207,9 @@
       background: rgba(181,138,69,.1);
     }
 
-    /* SECCIONES */
+    /* =========================
+       SECCIONES
+    ========================= */
 
     section {
       padding: 105px 0;
@@ -215,7 +231,7 @@
     }
 
     .intro {
-      max-width: 720px;
+      max-width: 760px;
       color: var(--muted);
       margin-top: 20px;
       font-size: 17px;
@@ -225,7 +241,42 @@
       background: var(--black-2);
     }
 
-    /* SERVICIOS */
+    /* =========================
+       PERFIL
+    ========================= */
+
+    .profile {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .profile-box {
+      padding: 32px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg,#131313,#0b0b0b);
+    }
+
+    .profile-box h3 {
+      font-family: Georgia, serif;
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .profile-box p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .highlight {
+      color: var(--gold-light);
+    }
+
+    /* =========================
+       SERVICIOS
+    ========================= */
 
     .grid-4 {
       display: grid;
@@ -235,7 +286,7 @@
     }
 
     .card {
-      min-height: 270px;
+      min-height: 290px;
       padding: 28px;
       background:
         linear-gradient(
@@ -273,7 +324,9 @@
       font-size: 14px;
     }
 
-    /* MÉTODO */
+    /* =========================
+       MÉTODO
+    ========================= */
 
     .method-grid {
       display: grid;
@@ -302,7 +355,35 @@
       letter-spacing: 1.5px;
     }
 
-    /* CONTACTO */
+    /* =========================
+       COBERTURA
+    ========================= */
+
+    .coverage {
+      text-align: center;
+      background: #0a0a0a;
+    }
+
+    .countries {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .country {
+      border: 1px solid var(--line);
+      padding: 18px 30px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    /* =========================
+       CONTACTO
+    ========================= */
 
     .contact {
       background:
@@ -352,7 +433,19 @@
       resize: vertical;
     }
 
-    /* FOOTER */
+    .contact-info {
+      margin-top: 25px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-info strong {
+      color: var(--gold-light);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       padding: 30px 0;
@@ -361,7 +454,9 @@
       font-size: 12px;
     }
 
-    /* WHATSAPP */
+    /* =========================
+       WHATSAPP
+    ========================= */
 
     .wa {
       position: fixed;
@@ -392,7 +487,9 @@
       margin-top: 15px;
     }
 
-    /* RESPONSIVE */
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
     @media(max-width:900px) {
 
@@ -412,7 +509,8 @@
         border-right: 0;
       }
 
-      .contact-grid {
+      .contact-grid,
+      .profile {
         grid-template-columns: 1fr;
       }
     }
@@ -439,16 +537,20 @@
         font-size: 23px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVBAR
 ========================= -->
 
 <header>
+
   <div class="container">
 
     <nav>
@@ -498,6 +600,7 @@
     </nav>
 
   </div>
+
 </header>
 
 
@@ -530,9 +633,20 @@
       </h1>
 
       <p>
-        Fidium es el aliado estratégico de empresarios y organizaciones
-        que necesitan proteger, negociar, resolver y ejecutar sin burocracia.
+
+        Fidium es el aliado estratégico de empresarios,
+        organizaciones y proyectos que necesitan
+        proteger, negociar, resolver y ejecutar
+        sin burocracia.
+
       </p>
+
+      <div class="location">
+
+        León, Guanajuato, México · Atención de asuntos
+        en México y Chile.
+
+      </div>
 
       <div class="actions">
 
@@ -573,11 +687,14 @@
     </div>
 
     <h2>
+
       Un solo aliado.
       <br>
+
       <span class="gold">
         Una visión integral.
       </span>
+
     </h2>
 
     <p class="intro">
@@ -590,6 +707,58 @@
       punto de contacto de alto nivel.
 
     </p>
+
+
+    <div class="profile">
+
+
+      <div class="profile-box">
+
+        <h3>
+          Atención directa
+        </h3>
+
+        <p>
+
+          <span class="highlight">
+            Saúl Falcón Velázquez
+          </span>
+
+          atiende directamente los proyectos,
+          consultas y gestiones de Fidium.
+
+        </p>
+
+      </div>
+
+
+      <div class="profile-box">
+
+        <h3>
+          Alcance
+        </h3>
+
+        <p>
+
+          Con base en
+
+          <span class="highlight">
+            León, Guanajuato, México
+          </span>,
+
+          Fidium gestiona asuntos y operaciones
+          con alcance en
+
+          <span class="highlight">
+            México y Chile.
+          </span>
+
+        </p>
+
+      </div>
+
+
+    </div>
 
   </div>
 
@@ -609,11 +778,14 @@
     </div>
 
     <h2>
+
       Diseñamos soluciones.
       <br>
+
       <span class="gold">
         Ejecutamos resultados.
       </span>
+
     </h2>
 
 
@@ -631,10 +803,13 @@
         </h3>
 
         <p>
-          Registro de marcas, contratos, bajas,
-          mediación y gestión de asuntos legales
-          orientados a proteger y dar continuidad
+
+          Registro de marcas, contratos,
+          bajas, mediación y gestión de
+          asuntos legales orientados a
+          proteger y dar continuidad
           al negocio.
+
         </p>
 
       </article>
@@ -651,9 +826,12 @@
         </h3>
 
         <p>
-          Intermediación comercial, análisis de mercado,
-          representación en negociaciones y estructuración
-          de oportunidades.
+
+          Intermediación comercial,
+          análisis de mercado,
+          representación en negociaciones
+          y estructuración de oportunidades.
+
         </p>
 
       </article>
@@ -670,9 +848,12 @@
         </h3>
 
         <p>
-          Producción de eventos corporativos, ejecutivos
-          y estudiantiles, además de capacitación
-          para equipos y organizaciones.
+
+          Producción de eventos corporativos,
+          ejecutivos y estudiantiles,
+          además de capacitación para
+          equipos y organizaciones.
+
         </p>
 
       </article>
@@ -689,9 +870,12 @@
         </h3>
 
         <p>
-          Una red de especialistas y gestión directa
-          para resolver necesidades operativas,
+
+          Una red de especialistas y
+          gestión directa para resolver
+          necesidades operativas,
           estratégicas y comerciales.
+
         </p>
 
       </article>
@@ -717,10 +901,13 @@
     </div>
 
     <h2>
+
       Del problema a la
+
       <span class="gold">
         ejecución.
       </span>
+
     </h2>
 
 
@@ -759,6 +946,54 @@
 
 
 <!-- =========================
+     COBERTURA
+========================= -->
+
+<section class="coverage">
+
+  <div class="container">
+
+    <div class="section-label">
+      Cobertura
+    </div>
+
+    <h2>
+
+      Presencia estratégica
+
+      <span class="gold">
+        binacional.
+      </span>
+
+    </h2>
+
+    <p class="intro" style="margin-left:auto;margin-right:auto;">
+
+      Desde León, Guanajuato, Fidium atiende
+      proyectos y asuntos con alcance en
+      México y Chile.
+
+    </p>
+
+
+    <div class="countries">
+
+      <div class="country">
+        México
+      </div>
+
+      <div class="country">
+        Chile
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
      CONTACTO
 ========================= -->
 
@@ -771,12 +1006,15 @@
     </div>
 
     <h2>
+
       Cuéntanos qué necesitas.
+
       <br>
 
       <span class="gold">
         Hablemos de cómo hacerlo posible.
       </span>
+
     </h2>
 
 
@@ -883,30 +1121,53 @@
           Atención directa y confidencial.
         </h3>
 
+
         <p
           style="
             color:#aaa49a;
             margin-bottom:28px;
           "
         >
+
           Para consultas, proyectos, negociaciones
           o eventos, puedes contactar directamente
-          a Fidium.
+          con Saúl Falcón Velázquez.
+
         </p>
 
 
         <a
           class="btn btn-primary"
-          href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20hablar%20sobre%20un%20proyecto."
+          href="https://wa.me/524776717098?text=Hola%20Sa%C3%BAl,%20quiero%20hablar%20sobre%20un%20proyecto%20con%20Fidium."
           target="_blank"
         >
           Hablar por WhatsApp
         </a>
 
 
-        <p class="small">
-          WhatsApp: +52 477 671 7098
-        </p>
+        <div class="contact-info">
+
+          <p>
+            <strong>Atención:</strong>
+            Saúl Falcón Velázquez
+          </p>
+
+          <p>
+            <strong>Base:</strong>
+            León, Guanajuato, México
+          </p>
+
+          <p>
+            <strong>Alcance:</strong>
+            México y Chile
+          </p>
+
+          <p>
+            <strong>WhatsApp:</strong>
+            +52 477 671 7098
+          </p>
+
+        </div>
 
       </div>
 
@@ -939,12 +1200,12 @@
 
 
 <!-- =========================
-     BOTÓN FLOTANTE WHATSAPP
+     WHATSAPP FLOTANTE
 ========================= -->
 
 <a
   class="wa"
-  href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica."
+  href="https://wa.me/524776717098?text=Hola%20Sa%C3%BAl,%20quiero%20hablar%20sobre%20un%20proyecto%20con%20Fidium."
   target="_blank"
   aria-label="WhatsApp"
 >
@@ -976,7 +1237,7 @@ function sendWhatsApp(event) {
 
 
   const text =
-    "Hola Fidium,%0A%0A" +
+    "Hola Saúl, quiero contactar a Fidium.%0A%0A" +
 
     "Nombre: " +
     encodeURIComponent(nombre) +
@@ -1004,6 +1265,7 @@ function sendWhatsApp(event) {
 }
 
 </script>
+
 
 </body>
 </html>
