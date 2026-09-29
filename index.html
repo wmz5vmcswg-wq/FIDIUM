@@ -70,10 +70,22 @@
       justify-content: space-between;
     }
 
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
     .logo {
       font-family: Georgia, serif;
-      font-size: 27px;
-      letter-spacing: 5px;
+      font-size: 24px;
+      letter-spacing: 4px;
       color: var(--gold-light);
       font-weight: bold;
     }
@@ -82,6 +94,7 @@
       display: flex;
       gap: 28px;
       list-style: none;
+      align-items: center;
     }
 
     nav a {
@@ -242,20 +255,43 @@
     }
 
     /* =========================
-       PERFIL
+       PERFIL & IMAGEN DE LA FIRMA
     ========================= */
 
     .profile {
       margin-top: 45px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 25px;
+      align-items: stretch;
     }
 
     .profile-box {
       padding: 32px;
       border: 1px solid var(--line);
       background: linear-gradient(145deg,#131313,#0b0b0b);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-img-box {
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #0b0b0b;
+      min-height: 280px;
+    }
+
+    .profile-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(110%);
+      transition: transform .4s ease;
+    }
+
+    .profile-img-box img:hover {
+      transform: scale(1.03);
     }
 
     .profile-box h3 {
@@ -286,24 +322,36 @@
     }
 
     .card {
-      min-height: 290px;
-      padding: 28px;
-      background:
-        linear-gradient(
-          145deg,
-          #131313,
-          #0b0b0b
-        );
-
+      min-height: 380px;
+      padding: 0;
+      background: linear-gradient(145deg, #131313, #0b0b0b);
       border: 1px solid var(--line);
       position: relative;
       overflow: hidden;
       transition: .3s;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
       transform: translateY(-5px);
       border-color: rgba(214,177,107,.5);
+    }
+
+    .card-img {
+      height: 140px;
+      width: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      filter: sepia(30%) brightness(85%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
     .num {
@@ -314,14 +362,14 @@
 
     .card h3 {
       font-family: Georgia, serif;
-      font-size: 25px;
+      font-size: 21px;
       font-weight: 500;
-      margin: 28px 0 14px;
+      margin: 14px 0 10px;
     }
 
     .card p {
       color: #a9a49b;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     /* =========================
@@ -362,6 +410,24 @@
     .coverage {
       text-align: center;
       background: #0a0a0a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .coverage-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .coverage .container {
+      position: relative;
+      z-index: 2;
     }
 
     .countries {
@@ -379,6 +445,7 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       font-size: 12px;
+      background: rgba(10,10,10,0.8);
     }
 
     /* =========================
@@ -463,28 +530,16 @@
       right: 22px;
       bottom: 22px;
       z-index: 999;
-
       width: 58px;
       height: 58px;
-
       border-radius: 50%;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: #168c45;
       color: white;
-
       font-size: 25px;
-
       box-shadow: 0 10px 35px rgba(0,0,0,.45);
-    }
-
-    .small {
-      font-size: 12px;
-      color: #777;
-      margin-top: 15px;
     }
 
     /* =========================
@@ -492,23 +547,18 @@
     ========================= */
 
     @media(max-width:900px) {
-
       nav ul {
         display: none;
       }
-
       .grid-4 {
         grid-template-columns: 1fr 1fr;
       }
-
       .method-grid {
         grid-template-columns: 1fr;
       }
-
       .step {
         border-right: 0;
       }
-
       .contact-grid,
       .profile {
         grid-template-columns: 1fr;
@@ -516,756 +566,379 @@
     }
 
     @media(max-width:600px) {
-
       h1 {
         letter-spacing: -2px;
       }
-
       .grid-4 {
         grid-template-columns: 1fr;
       }
-
       section {
         padding: 80px 0;
       }
-
       .hero-content {
         padding-top: 80px;
       }
-
       .logo {
-        font-size: 23px;
+        font-size: 20px;
       }
     }
 
   </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================
      NAVBAR
 ========================= -->
-
 <header>
-
   <div class="container">
-
     <nav>
-
-      <a href="#inicio" class="logo">
-        FIDIUM
+      <a href="#inicio" class="logo-container">
+        <!-- Uso del logotipo corporativo proporcionado -->
+        <img src="data:image/jpeg;base64,...[INTEGRADO]" alt="Fidium Logo" class="logo-img" style="display:none"> <!-- O reemplaza con la ruta del archivo si está local: logo.png -->
+        <!-- Referencia directa usando el archivo visual -->
+        <img src="image.png" alt="Fidium Logo" class="logo-img">
+        <span class="logo">FIDIUM</span>
       </a>
 
       <ul>
-
+        <li><a href="#firma">La Firma</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#metodo">El Método</a></li>
+        <li><a href="#contacto">Contacto</a></li>
         <li>
-          <a href="#firma">
-            La Firma
-          </a>
-        </li>
-
-        <li>
-          <a href="#servicios">
-            Servicios
-          </a>
-        </li>
-
-        <li>
-          <a href="#metodo">
-            El Método
-          </a>
-        </li>
-
-        <li>
-          <a href="#contacto">
-            Contacto
-          </a>
-        </li>
-
-        <li>
-          <a
-            class="nav-cta"
-            href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica."
-            target="_blank"
-          >
+          <a class="nav-cta" href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica." target="_blank">
             WhatsApp
           </a>
         </li>
-
       </ul>
-
     </nav>
-
   </div>
-
 </header>
-
 
 <!-- =========================
      HERO
 ========================= -->
-
 <main>
-
 <section class="hero" id="inicio">
-
   <div class="container">
-
     <div class="hero-content">
-
       <div class="eyebrow">
         Soluciones integrales · Protección · Gestión estratégica
       </div>
-
       <h1>
-
         NO BUSCAMOS EL CAMINO FÁCIL.
-
         <br>
-
         <span class="gold">
           ENCONTRAMOS EL CAMINO POSIBLE.
         </span>
-
       </h1>
-
       <p>
-
         Fidium es el aliado estratégico de empresarios,
         organizaciones y proyectos que necesitan
         proteger, negociar, resolver y ejecutar
         sin burocracia.
-
       </p>
-
       <div class="location">
-
-        León, Guanajuato, México · Atención de asuntos
-        en México y Chile.
-
+        León, Guanajuato, México · Atención de asuntos en México y Chile.
       </div>
-
       <div class="actions">
-
-        <a
-          class="btn btn-primary"
-          href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica."
-          target="_blank"
-        >
+        <a class="btn btn-primary" href="https://wa.me/524776717098?text=Hola%20Fidium,%20quiero%20agendar%20una%20consulta%20estrat%C3%A9gica." target="_blank">
           Agendar Consulta Estratégica
         </a>
-
-        <a
-          class="btn btn-outline"
-          href="#servicios"
-        >
+        <a class="btn btn-outline" href="#servicios">
           Explorar Servicios
         </a>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- =========================
      LA FIRMA
 ========================= -->
-
 <section class="about" id="firma">
-
   <div class="container">
-
     <div class="section-label">
       La Firma
     </div>
-
     <h2>
-
       Un solo aliado.
       <br>
-
       <span class="gold">
         Una visión integral.
       </span>
-
     </h2>
-
     <p class="intro">
-
-      Fidium nace en 2026 para romper con el
-      “no se puede”.
-
+      Fidium nace para romper con el “no se puede”.
       Integramos estrategia legal, negociación comercial,
       operación, capacitación y experiencias bajo un solo
       punto de contacto de alto nivel.
-
     </p>
 
-
     <div class="profile">
-
-
       <div class="profile-box">
-
-        <h3>
-          Atención directa
-        </h3>
-
+        <h3>Atención directa</h3>
         <p>
-
-          <span class="highlight">
-            Saúl Falcón Velázquez
-          </span>
-
+          <span class="highlight">Saúl Falcón Velázquez</span>
           atiende directamente los proyectos,
           consultas y gestiones de Fidium.
-
         </p>
-
       </div>
 
+      <!-- Imagen ejecutiva representativa para la firma -->
+      <div class="profile-img-box">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop" alt="Dirección Estratégica Fidium">
+      </div>
 
       <div class="profile-box">
-
-        <h3>
-          Alcance
-        </h3>
-
+        <h3>Alcance</h3>
         <p>
-
           Con base en
-
-          <span class="highlight">
-            León, Guanajuato, México
-          </span>,
-
+          <span class="highlight">León, Guanajuato, México</span>,
           Fidium gestiona asuntos y operaciones
           con alcance en
-
-          <span class="highlight">
-            México y Chile.
-          </span>
-
+          <span class="highlight">México y Chile.</span>
         </p>
-
       </div>
-
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- =========================
      SERVICIOS
 ========================= -->
-
 <section id="servicios">
-
   <div class="container">
-
     <div class="section-label">
       Servicios
     </div>
-
     <h2>
-
       Diseñamos soluciones.
       <br>
-
       <span class="gold">
         Ejecutamos resultados.
       </span>
-
     </h2>
 
-
     <div class="grid-4">
-
-
       <article class="card">
-
-        <div class="num">
-          01
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop" alt="Blindaje Legal" class="card-img">
+        <div class="card-content">
+          <div class="num">01</div>
+          <h3>Blindaje & Gestión Legal</h3>
+          <p>Registro de marcas, contratos, bajas, mediación y gestión de asuntos legales orientados a proteger y dar continuidad al negocio.</p>
         </div>
-
-        <h3>
-          Blindaje & Gestión Legal
-        </h3>
-
-        <p>
-
-          Registro de marcas, contratos,
-          bajas, mediación y gestión de
-          asuntos legales orientados a
-          proteger y dar continuidad
-          al negocio.
-
-        </p>
-
       </article>
 
-
       <article class="card">
-
-        <div class="num">
-          02
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" alt="Estrategia y Negociación" class="card-img">
+        <div class="card-content">
+          <div class="num">02</div>
+          <h3>Estrategia & Negociación</h3>
+          <p>Intermediación comercial, análisis de mercado, representación en negociaciones y estructuración de oportunidades.</p>
         </div>
-
-        <h3>
-          Estrategia & Negociación
-        </h3>
-
-        <p>
-
-          Intermediación comercial,
-          análisis de mercado,
-          representación en negociaciones
-          y estructuración de oportunidades.
-
-        </p>
-
       </article>
 
-
       <article class="card">
-
-        <div class="num">
-          03
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop" alt="Experiencias y Capacitación" class="card-img">
+        <div class="card-content">
+          <div class="num">03</div>
+          <h3>Experiencias & Capacitación</h3>
+          <p>Producción de eventos corporativos, ejecutivos y estudiantiles, además de capacitación para equipos y organizaciones.</p>
         </div>
-
-        <h3>
-          Experiencias & Capacitación
-        </h3>
-
-        <p>
-
-          Producción de eventos corporativos,
-          ejecutivos y estudiantiles,
-          además de capacitación para
-          equipos y organizaciones.
-
-        </p>
-
       </article>
 
-
       <article class="card">
-
-        <div class="num">
-          04
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" alt="Concierge Empresarial" class="card-img">
+        <div class="card-content">
+          <div class="num">04</div>
+          <h3>Concierge Empresarial</h3>
+          <p>Una red de especialistas y gestión directa para resolver necesidades operativas, estratégicas y comerciales.</p>
         </div>
-
-        <h3>
-          Concierge Empresarial
-        </h3>
-
-        <p>
-
-          Una red de especialistas y
-          gestión directa para resolver
-          necesidades operativas,
-          estratégicas y comerciales.
-
-        </p>
-
       </article>
-
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- =========================
      MÉTODO
 ========================= -->
-
 <section class="about" id="metodo">
-
   <div class="container">
-
     <div class="section-label">
       El Método Fidium
     </div>
-
     <h2>
-
       Del problema a la
-
-      <span class="gold">
-        ejecución.
-      </span>
-
+      <span class="gold">ejecución.</span>
     </h2>
 
-
     <div class="method-grid">
-
       <div class="step">
         <strong>01</strong>
         <span>Escuchamos</span>
       </div>
-
       <div class="step">
         <strong>02</strong>
         <span>Diagnosticamos</span>
       </div>
-
       <div class="step">
         <strong>03</strong>
         <span>Diseñamos</span>
       </div>
-
       <div class="step">
         <strong>04</strong>
         <span>Ejecutamos</span>
       </div>
-
       <div class="step">
         <strong>05</strong>
         <span>Resolvemos</span>
       </div>
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- =========================
      COBERTURA
 ========================= -->
-
 <section class="coverage">
-
+  <!-- Imagen de fondo corporativa/geográfica sutil -->
+  <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop" alt="Cobertura Binacional" class="coverage-bg">
   <div class="container">
-
     <div class="section-label">
       Cobertura
     </div>
-
     <h2>
-
       Presencia estratégica
-
-      <span class="gold">
-        binacional.
-      </span>
-
+      <span class="gold">binacional.</span>
     </h2>
-
     <p class="intro" style="margin-left:auto;margin-right:auto;">
-
-      Desde León, Guanajuato, Fidium atiende
-      proyectos y asuntos con alcance en
-      México y Chile.
-
+      Desde León, Guanajuato, Fidium atiende proyectos y asuntos con alcance en México y Chile.
     </p>
 
-
     <div class="countries">
-
-      <div class="country">
-        México
-      </div>
-
-      <div class="country">
-        Chile
-      </div>
-
+      <div class="country">México</div>
+      <div class="country">Chile</div>
     </div>
-
   </div>
-
 </section>
-
 
 <!-- =========================
      CONTACTO
 ========================= -->
-
 <section class="contact" id="contacto">
-
   <div class="container">
-
     <div class="section-label">
       Agenda Privada
     </div>
-
     <h2>
-
       Cuéntanos qué necesitas.
-
       <br>
-
       <span class="gold">
         Hablemos de cómo hacerlo posible.
       </span>
-
     </h2>
 
-
     <div class="contact-grid">
-
-
       <!-- FORMULARIO -->
-
       <div class="contact-box">
-
         <form onsubmit="sendWhatsApp(event)">
+          <label>Nombre</label>
+          <input id="nombre" type="text" required placeholder="Tu nombre">
 
-          <label>
-            Nombre
-          </label>
+          <label>Empresa</label>
+          <input id="empresa" type="text" placeholder="Empresa / organización">
 
-          <input
-            id="nombre"
-            type="text"
-            required
-            placeholder="Tu nombre"
-          >
-
-
-          <label>
-            Empresa
-          </label>
-
-          <input
-            id="empresa"
-            type="text"
-            placeholder="Empresa / organización"
-          >
-
-
-          <label>
-            Área de interés
-          </label>
-
+          <label>Área de interés</label>
           <select id="area">
-
-            <option>
-              Blindaje & Gestión Legal
-            </option>
-
-            <option>
-              Estrategia & Negociación Comercial
-            </option>
-
-            <option>
-              Experiencias & Capacitación
-            </option>
-
-            <option>
-              Concierge Empresarial
-            </option>
-
-            <option>
-              Gestión & Resolución Integral de Negocios
-            </option>
-
+            <option>Blindaje & Gestión Legal</option>
+            <option>Estrategia & Negociación Comercial</option>
+            <option>Experiencias & Capacitación</option>
+            <option>Concierge Empresarial</option>
+            <option>Gestión & Resolución Integral de Negocios</option>
           </select>
 
+          <label>Cuéntanos brevemente</label>
+          <textarea id="mensaje" required placeholder="Describe tu proyecto, problema o necesidad."></textarea>
 
-          <label>
-            Cuéntanos brevemente
-          </label>
-
-          <textarea
-            id="mensaje"
-            required
-            placeholder="Describe tu proyecto, problema o necesidad."
-          ></textarea>
-
-
-          <button
-            class="btn btn-primary"
-            type="submit"
-          >
+          <button class="btn btn-primary" type="submit">
             Enviar por WhatsApp
           </button>
-
         </form>
-
       </div>
 
-
       <!-- CONTACTO DIRECTO -->
-
       <div>
-
         <div class="section-label">
           Contacto directo
         </div>
-
-        <h3
-          style="
-            font-family:Georgia,serif;
-            font-size:34px;
-            font-weight:500;
-            margin-bottom:18px;
-          "
-        >
+        <h3 style="font-family:Georgia,serif; font-size:34px; font-weight:500; margin-bottom:18px;">
           Atención directa y confidencial.
         </h3>
 
-
-        <p
-          style="
-            color:#aaa49a;
-            margin-bottom:28px;
-          "
-        >
-
-          Para consultas, proyectos, negociaciones
-          o eventos, puedes contactar directamente
-          con Saúl Falcón Velázquez.
-
+        <p style="color:#aaa49a; margin-bottom:28px;">
+          Para consultas, proyectos, negociaciones o eventos, puedes contactar directamente con Saúl Falcón Velázquez.
         </p>
 
-
-        <a
-          class="btn btn-primary"
-          href="https://wa.me/524776717098?text=Hola%20Sa%C3%BAl,%20quiero%20hablar%20sobre%20un%20proyecto%20con%20Fidium."
-          target="_blank"
-        >
+        <a class="btn btn-primary" href="https://wa.me/524776717098?text=Hola%20Sa%C3%BAl,%20quiero%20hablar%20sobre%20un%20proyecto%20con%20Fidium." target="_blank">
           Hablar por WhatsApp
         </a>
 
-
         <div class="contact-info">
-
-          <p>
-            <strong>Atención:</strong>
-            Saúl Falcón Velázquez
-          </p>
-
-          <p>
-            <strong>Base:</strong>
-            León, Guanajuato, México
-          </p>
-
-          <p>
-            <strong>Alcance:</strong>
-            México y Chile
-          </p>
-
-          <p>
-            <strong>WhatsApp:</strong>
-            +52 477 671 7098
-          </p>
-
+          <p><strong>Atención:</strong> Saúl Falcón Velázquez</p>
+          <p><strong>Base:</strong> León, Guanajuato, México</p>
+          <p><strong>Alcance:</strong> México y Chile</p>
+          <p><strong>WhatsApp:</strong> +52 477 671 7098</p>
         </div>
-
       </div>
-
-
     </div>
-
   </div>
-
 </section>
 
 </main>
 
-
 <!-- =========================
      FOOTER
 ========================= -->
-
 <footer>
-
   <div class="container">
-
-    © 2026 Fidium.
-    Todos los derechos reservados.
+    © 2026 Fidium. Todos los derechos reservados.
     · Aviso de privacidad
     · Términos y condiciones
-
   </div>
-
 </footer>
-
 
 <!-- =========================
      WHATSAPP FLOTANTE
 ========================= -->
-
-<a
-  class="wa"
-  href="https://wa.me/524776717098?text=Hola%20Sa%C3%BAl,%20quiero%20hablar%20sobre%20un%20proyecto%20con%20Fidium."
-  target="_blank"
-  aria-label="WhatsApp"
->
+<a class="wa" href="https://wa.me/524776717098?text=Hola%20Sa%C3%BAl,%20quiero%20hablar%20sobre%20un%20proyecto%20con%20Fidium." target="_blank" aria-label="WhatsApp">
   ◉
 </a>
-
 
 <!-- =========================
      JAVASCRIPT
 ========================= -->
-
 <script>
-
 function sendWhatsApp(event) {
-
   event.preventDefault();
 
-  const nombre =
-    document.getElementById("nombre").value.trim();
-
-  const empresa =
-    document.getElementById("empresa").value.trim();
-
-  const area =
-    document.getElementById("area").value;
-
-  const mensaje =
-    document.getElementById("mensaje").value.trim();
-
+  const nombre = document.getElementById("nombre").value.trim();
+  const empresa = document.getElementById("empresa").value.trim();
+  const area = document.getElementById("area").value;
+  const mensaje = document.getElementById("mensaje").value.trim();
 
   const text =
     "Hola Saúl, quiero contactar a Fidium.%0A%0A" +
+    "Nombre: " + encodeURIComponent(nombre) + "%0A" +
+    "Empresa: " + encodeURIComponent(empresa || "No especificada") + "%0A" +
+    "Área: " + encodeURIComponent(area) + "%0A" +
+    "Proyecto / necesidad: " + encodeURIComponent(mensaje);
 
-    "Nombre: " +
-    encodeURIComponent(nombre) +
-    "%0A" +
-
-    "Empresa: " +
-    encodeURIComponent(
-      empresa || "No especificada"
-    ) +
-    "%0A" +
-
-    "Área: " +
-    encodeURIComponent(area) +
-    "%0A" +
-
-    "Proyecto / necesidad: " +
-    encodeURIComponent(mensaje);
-
-
-  window.open(
-    "https://wa.me/524776717098?text=" + text,
-    "_blank"
-  );
-
+  window.open("https://wa.me/524776717098?text=" + text, "_blank");
 }
-
 </script>
-
 
 </body>
 </html>
